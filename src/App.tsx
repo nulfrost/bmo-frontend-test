@@ -32,19 +32,23 @@ function App() {
           placeholder="Search for a book"
           aria-label="Search through thousands of books"
         />
-        <label htmlFor="sortType">Sort By</label>
-        <select
-          onChange={onSortChange}
-          defaultValue="title"
-          name="sortType"
-          id="sortType"
-          style={{ display: "block" }}
-        >
-          Sort By:
-          <option value="date">Date</option>
-          <option value="title">Title</option>
-        </select>
-        <Button type="submit">Find</Button>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <label htmlFor="sortType">
+            Sort By
+            <select
+              onChange={onSortChange}
+              defaultValue="title"
+              name="sortType"
+              id="sortType"
+              style={{ display: "block" }}
+            >
+              Sort By:
+              <option value="date">Date</option>
+              <option value="title">Title</option>
+            </select>
+          </label>
+          <Button type="submit">Find</Button>
+        </div>
       </Form>
       <BookList query={bookQuery} sort={sort} />
     </MainLayout>
