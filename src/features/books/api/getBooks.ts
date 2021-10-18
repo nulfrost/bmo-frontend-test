@@ -1,11 +1,10 @@
 import { useQuery } from "react-query";
 import { axios } from "src/lib/axios";
 
-const formatQuery = (query: string) => query.split(" ").join("+");
-
 export const getBooks = (query: string): Promise<any> => {
-  const formattedQuery = formatQuery(query);
-  return axios.get(`search.json?q=${formattedQuery}`);
+  return axios.get(
+    `search.json?q=${query}&fields=title,author_name,key,cover_i`
+  );
 };
 
 export const useBooks = (query: string) => {
