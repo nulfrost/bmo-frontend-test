@@ -12,4 +12,6 @@ export const MainLayout: FunctionComponent<Props> = ({ children }) => {
 const Wrapper = styled.main`
   max-width: 1200px;
   margin: 0 auto;
+  height: 100%;
+  margin-top: 1rem;
 `;

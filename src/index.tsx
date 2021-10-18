@@ -3,12 +3,17 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { GlobalStyle } from "src/components";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <GlobalStyle />
-    <App />
-  </React.StrictMode>,
+  <QueryClientProvider client={queryClient}>
+    <React.StrictMode>
+      <GlobalStyle />
+      <App />
+    </React.StrictMode>
+  </QueryClientProvider>,
   document.getElementById("root")
 );
 

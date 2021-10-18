@@ -16,11 +16,21 @@ export const InputField: FunctionComponent<Props> = ({
   return (
     <Wrapper>
       <label htmlFor={name}>{label}</label>
-      <input type={type} placeholder={placeholder} />
+      <Input type={type} placeholder={placeholder} />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  margin-bottom: 0.5rem;
+`;
+
+const Input = styled.input`
+  padding: 0.5rem 0.3rem;
+  font-size: 1.2rem;
+  border-radius: 0.2rem;
+  border: 1px solid #ccc;
 `;
