@@ -6,6 +6,7 @@ type Props = {
   isbnNumbers: string[];
   author: string;
   publishDate?: string;
+  publishYear?: string;
 };
 
 export const BookItem: FunctionComponent<Props> = ({
@@ -13,6 +14,7 @@ export const BookItem: FunctionComponent<Props> = ({
   isbnNumbers,
   author,
   publishDate,
+  publishYear,
 }) => {
   const getAuthors = (authorArray) => {
     if (typeof authorArray === "undefined") {
@@ -26,13 +28,6 @@ export const BookItem: FunctionComponent<Props> = ({
       return `https://via.placeholder.com/323x400.webp?text=${title}`;
     }
     return `https://covers.openlibrary.org/b/isbn/${isbn[0]}-L.jpg`;
-  };
-
-  const getPublishDate = (dates) => {
-    if (typeof dates === "undefined") {
-      return `Date unavailable`;
-    }
-    return dates[0];
   };
 
   return (
@@ -61,7 +56,7 @@ export const BookItem: FunctionComponent<Props> = ({
           {getAuthors(author)}
         </Text>
         <Text as="time" fontSize="0.8rem">
-          {getPublishDate(publishDate)}
+          {publishYear}
         </Text>
       </footer>
     </article>

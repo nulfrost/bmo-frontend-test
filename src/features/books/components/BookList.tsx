@@ -47,13 +47,21 @@ export const BookList = ({
     <section>
       <Grid>
         {sortBooks(getUniqueListBy(books?.data?.data?.docs, "title"), sort).map(
-          ({ key, title, author_name, isbn, publish_date }) => (
+          ({
+            key,
+            title,
+            author_name,
+            isbn,
+            publish_date,
+            first_publish_year,
+          }) => (
             <BookItem
               key={key}
               title={title}
               author={author_name}
               isbnNumbers={isbn}
               publishDate={publish_date}
+              publishYear={first_publish_year}
             />
           )
         )}
