@@ -25,7 +25,7 @@ export const BookItem: FunctionComponent<Props> = ({
     if (typeof isbn === "undefined") {
       return `https://via.placeholder.com/323x400.webp?text=${title}`;
     }
-    return `http://covers.openlibrary.org/b/isbn/${isbn[0]}-L.jpg`;
+    return `https://covers.openlibrary.org/b/isbn/${isbn[0]}-L.jpg`;
   };
 
   const getPublishDate = (dates) => {
