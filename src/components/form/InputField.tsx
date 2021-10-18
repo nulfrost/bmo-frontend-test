@@ -16,7 +16,12 @@ export const InputField = forwardRef<Ref, Props>((props, ref) => {
       <Label htmlFor={props.name} srOnly={props.srOnly}>
         {props.label}
       </Label>
-      <Input type={props.type} placeholder={props.placeholder} ref={ref} />
+      <Input
+        type={props.type}
+        placeholder={props.placeholder}
+        ref={ref}
+        id={props.name}
+      />
     </Wrapper>
   );
 });

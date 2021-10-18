@@ -36,7 +36,10 @@ export const BookItem: FunctionComponent<Props> = ({
   };
 
   return (
-    <article style={{ display: "flex", flexDirection: "column" }}>
+    <article
+      style={{ display: "flex", flexDirection: "column" }}
+      data-testid="book"
+    >
       <Text as="h2" fontSize="1.2rem">
         {title}
       </Text>

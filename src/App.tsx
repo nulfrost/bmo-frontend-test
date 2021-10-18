@@ -27,19 +27,25 @@ function App() {
           srOnly
           type="search"
           name="book"
-          label="Search for book"
+          label="Search"
           ref={searchRef}
           placeholder="Search for a book"
+          aria-label="Search through thousands of books"
         />
+        <label htmlFor="sortType">Sort By</label>
+        <select
+          onChange={onSortChange}
+          defaultValue="title"
+          name="sortType"
+          id="sortType"
+          style={{ display: "block" }}
+        >
+          Sort By:
+          <option value="date">Date</option>
+          <option value="title">Title</option>
+        </select>
         <Button type="submit">Find</Button>
       </Form>
-      <select onChange={onSortChange}>
-        Sort By:
-        <option value="date">Date</option>
-        <option value="title" selected>
-          Title
-        </option>
-      </select>
       <BookList query={bookQuery} sort={sort} />
     </MainLayout>
   );
