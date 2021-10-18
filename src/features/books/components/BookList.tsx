@@ -21,7 +21,7 @@ export const BookList = ({
         return books.sort((a, b) => a?.title?.localeCompare(b?.title));
       case "date":
         return books.sort(
-          (a, b) => a?.first_publish_year - b?.first_publish_year
+          (a, b) => b?.first_publish_year - a?.first_publish_year
         );
       default:
         return books;
