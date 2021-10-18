@@ -1,6 +1,6 @@
 1. How long did you spend on the coding assignment?
 
-I spent just under a day working on this assignment.
+I spent just under about 7 to 8 hours working on this assignment.
 
 - a.
   - I would possibly do better job of creating reusable components
