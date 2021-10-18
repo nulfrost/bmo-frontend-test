@@ -24,12 +24,11 @@ export const InputField = forwardRef<Ref, Props>((props, ref) => {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
   margin-bottom: 0.5rem;
 `;
 
 const Input = styled.input`
-  padding: 0.5rem 0.3rem;
+  padding: 0.5rem 1rem;
   font-size: 1.2rem;
   border-radius: 0.2rem;
   border: 1px solid #ccc;

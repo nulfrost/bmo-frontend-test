@@ -4,8 +4,13 @@ import { BookList } from "src/features/books/components";
 
 function App() {
   const [bookQuery, setBookQuery] = useState<string | undefined>("");
+  const [sort, setSort] = useState<string>("title");
 
   const searchRef = useRef<HTMLInputElement | null>(null);
+
+  const onSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSort(event?.target?.value);
+  };
 
   const onSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -28,7 +33,14 @@ function App() {
         />
         <Button type="submit">Find</Button>
       </Form>
-      <BookList query={bookQuery} />
+      <select onChange={onSortChange}>
+        Sort By:
+        <option value="date">Date</option>
+        <option value="title" selected>
+          Title
+        </option>
+      </select>
+      <BookList query={bookQuery} sort={sort} />
     </MainLayout>
   );
 }
