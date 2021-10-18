@@ -1,8 +1,9 @@
 import { Text } from "src/components";
 import { useBooks } from "src/features/books/api/getBooks";
+import { BookItem } from "./BookItem";
 
-export const BookList = () => {
-  const books = useBooks("harry potter");
+export const BookList = ({ query }: { query: string | undefined }) => {
+  const books = useBooks(query || "harry potter");
 
   console.log(books);
 
@@ -21,5 +22,16 @@ export const BookList = () => {
       </Text>
     );
 
-  return <section>test</section>;
+  return (
+    <section>
+      {books?.data?.data?.docs?.map((book) => (
+        <BookItem
+          key={book?.key}
+          title={book?.title}
+          author={book?.author}
+          cover={book?.cover_i}
+        />
+      ))}
+    </section>
+  );
 };

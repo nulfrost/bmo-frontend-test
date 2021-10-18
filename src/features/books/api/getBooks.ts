@@ -3,7 +3,7 @@ import { axios } from "src/lib/axios";
 
 const formatQuery = (query: string) => query.split(" ").join("+");
 
-export const getBooks = (query: string) => {
+export const getBooks = (query: string): Promise<any> => {
   const formattedQuery = formatQuery(query);
   return axios.get(`search.json?q=${formattedQuery}`);
 };

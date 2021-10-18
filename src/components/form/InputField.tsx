@@ -1,4 +1,4 @@
-import { FunctionComponent, InputHTMLAttributes } from "react";
+import React, { InputHTMLAttributes, forwardRef } from "react";
 import styled from "styled-components/macro";
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
@@ -7,19 +7,16 @@ type Props = InputHTMLAttributes<HTMLInputElement> & {
   placeholder?: string;
 };
 
-export const InputField: FunctionComponent<Props> = ({
-  type,
-  name,
-  label,
-  placeholder,
-}) => {
+type Ref = HTMLInputElement;
+
+export const InputField = forwardRef<Ref, Props>((props, ref) => {
   return (
     <Wrapper>
-      <label htmlFor={name}>{label}</label>
-      <Input type={type} placeholder={placeholder} />
+      <label htmlFor={props.name}>{props.label}</label>
+      <Input type={props.type} placeholder={props.placeholder} ref={ref} />
     </Wrapper>
   );
-};
+});
 
 const Wrapper = styled.div`
   display: flex;
