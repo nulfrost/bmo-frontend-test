@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { InputField, MainLayout } from "src/components";
+import { Button, InputField, MainLayout, Form, Text } from "src/components";
 import { BookList } from "src/features/books/components";
 
 function App() {
@@ -14,15 +14,20 @@ function App() {
 
   return (
     <MainLayout>
-      <form onSubmit={onSubmit}>
+      <Text as="h1" fontSize="1.5rem">
+        Search
+      </Text>
+      <Form onSubmit={onSubmit}>
         <InputField
+          srOnly
           type="search"
           name="book"
           label="Search for book"
           ref={searchRef}
+          placeholder="Search for a book"
         />
-        <button type="submit">Send</button>
-      </form>
+        <Button type="submit">Find</Button>
+      </Form>
       <BookList query={bookQuery} />
     </MainLayout>
   );

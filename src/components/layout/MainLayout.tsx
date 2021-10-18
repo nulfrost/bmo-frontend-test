@@ -14,4 +14,8 @@ const Wrapper = styled.main`
   margin: 0 auto;
   height: 100%;
   margin-top: 1rem;
+  padding: 0 1rem;
+  @media (min-width: 1200px) {
+    padding: 0;
+  }
 `;

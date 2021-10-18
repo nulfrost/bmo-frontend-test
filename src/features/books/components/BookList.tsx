@@ -28,7 +28,7 @@ export const BookList = ({ query }: { query: string | undefined }) => {
         <BookItem
           key={book?.key}
           title={book?.title}
-          author={book?.author}
+          author={book?.author_name}
           cover={book?.cover_i}
         />
       ))}
