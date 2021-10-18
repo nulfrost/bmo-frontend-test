@@ -1,4 +1,4 @@
-import { Text } from "src/components";
+import { Text, Grid } from "src/components";
 import { useBooks } from "src/features/books/api/getBooks";
 import { BookItem } from "./BookItem";
 
@@ -24,14 +24,16 @@ export const BookList = ({ query }: { query: string | undefined }) => {
 
   return (
     <section>
-      {books?.data?.data?.docs?.map((book) => (
-        <BookItem
-          key={book?.key}
-          title={book?.title}
-          author={book?.author_name}
-          cover={book?.cover_i}
-        />
-      ))}
+      <Grid repeat={3} gap={10}>
+        {books?.data?.data?.docs?.map((book) => (
+          <BookItem
+            key={book?.key}
+            title={book?.title}
+            author={book?.author_name}
+            cover={book?.cover_i}
+          />
+        ))}
+      </Grid>
     </section>
   );
 };
