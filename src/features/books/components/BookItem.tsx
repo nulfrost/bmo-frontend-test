@@ -16,7 +16,7 @@ export const BookItem: FunctionComponent<Props> = ({
 }) => {
   const getAuthors = (authorArray) => {
     if (typeof authorArray === "undefined") {
-      return "Unknown";
+      return "Unknown Author";
     }
     return authorArray[0];
   };
@@ -28,8 +28,15 @@ export const BookItem: FunctionComponent<Props> = ({
     return `http://covers.openlibrary.org/b/isbn/${isbn[0]}-L.jpg`;
   };
 
+  const getPublishDate = (dates) => {
+    if (typeof dates === "undefined") {
+      return `Date unavailable`;
+    }
+    return dates[0];
+  };
+
   return (
-    <div>
+    <article style={{ display: "flex", flexDirection: "column" }}>
       <Text as="h2" fontSize="1.2rem">
         {title}
       </Text>
@@ -40,14 +47,20 @@ export const BookItem: FunctionComponent<Props> = ({
         width={323}
         alt={`Book cover for ${title}`}
       />
-      <footer>
+      <footer
+        style={{
+          marginTop: "auto",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
         <Text as="small" fontSize="0.8rem">
           {getAuthors(author)}
         </Text>
         <Text as="time" fontSize="0.8rem">
-          {publishDate}
+          {getPublishDate(publishDate)}
         </Text>
       </footer>
-    </div>
+    </article>
   );
 };
