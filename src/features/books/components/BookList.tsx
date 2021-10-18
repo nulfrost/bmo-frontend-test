@@ -24,13 +24,13 @@ export const BookList = ({ query }: { query: string | undefined }) => {
 
   return (
     <section>
-      <Grid repeat={3} gap={10}>
+      <Grid>
         {books?.data?.data?.docs?.map((book) => (
           <BookItem
             key={book?.key}
             title={book?.title}
             author={book?.author_name}
-            cover={book?.cover_i}
+            isbnNumbers={book?.isbn}
           />
         ))}
       </Grid>

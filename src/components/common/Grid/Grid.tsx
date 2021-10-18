@@ -1,21 +1,17 @@
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 
-type Props = {
-  repeat: number;
-  gap: number;
+export const Grid = ({ children }) => {
+  return <Wrapper>{children}</Wrapper>;
 };
 
-export const Grid: FunctionComponent<Props> = ({ children, repeat, gap }) => {
-  return (
-    <Wrapper repeat={repeat} gap={gap}>
-      {children}
-    </Wrapper>
-  );
-};
-
-const Wrapper = styled.div<{ repeat: number; gap: number }>`
+const Wrapper = styled.div`
   display: grid;
-  gap: ${(props) => props.gap}px;
-  grid-template-columns: repeat(${(props) => props.repeat}, 1fr);
+  gap: 20px;
+  grid-template-columns: repeat(1, 1fr);
+  @media (min-width: 760px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 1130px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;

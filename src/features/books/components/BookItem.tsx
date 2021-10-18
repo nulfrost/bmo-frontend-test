@@ -3,14 +3,14 @@ import { Text } from "src/components";
 
 type Props = {
   title: string;
-  cover: string;
+  isbnNumbers: string[];
   author: string;
   publishDate?: string;
 };
 
 export const BookItem: FunctionComponent<Props> = ({
   title,
-  cover,
+  isbnNumbers,
   author,
   publishDate,
 }) => {
@@ -18,7 +18,14 @@ export const BookItem: FunctionComponent<Props> = ({
     if (typeof authorArray === "undefined") {
       return "Unknown";
     }
-    return authorArray.map((author) => author);
+    return authorArray[0];
+  };
+
+  const getBookCover = (isbn, title) => {
+    if (typeof isbn === "undefined") {
+      return `https://via.placeholder.com/323x400.webp?text=${title}`;
+    }
+    return `http://covers.openlibrary.org/b/isbn/${isbn[0]}-L.jpg`;
   };
 
   return (
@@ -26,7 +33,13 @@ export const BookItem: FunctionComponent<Props> = ({
       <Text as="h2" fontSize="1.2rem">
         {title}
       </Text>
-      <img src={cover} />
+      <img
+        style={{ height: "auto", width: "100%" }}
+        src={getBookCover(isbnNumbers, title)}
+        height={500}
+        width={323}
+        alt={`Book cover for ${title}`}
+      />
       <footer>
         <Text as="small" fontSize="0.8rem">
           {getAuthors(author)}
